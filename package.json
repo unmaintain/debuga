@@ -1,0 +1,31 @@
+{
+  "name": "debuga",
+  "version": "1.0.0",
+  "description": "Do your debug workflow more visible on local server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "debug",
+    "debuga",
+    "favicon",
+    "browser-sync",
+    "connect",
+    "plugin"
+  ],
+  "author": {
+    "name": "Felix Exter",
+    "email": "felixexter@ya.ru",
+    "url": "https://github.com/felixexter"
+  },
+  "repository": "git@github.com:felixexter/debuga.git",
+  "bugs": {
+    "url": "https://github.com/felixexter/debuga/issues"
+  },
+  "homepage": "https://github.com/felixexter/debuga",
+  "license": "MIT",
+  "devDependencies": {
+    "merge": "^1.2.0"
+  }
+}
