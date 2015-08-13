@@ -1,16 +1,17 @@
 var fs = require('fs');
+var path = require('path');
 var merge = require('merge');
 var cwd = process.cwd();
 
 module.exports = function (options) {
-	options = merge(true, {}, options, {
+	options = merge(true, {}, {
 		favicon: null,
 		titlePrefix: 'DEBUG — ',
-		dist: cwd + '/dist'
-	});
+		dist: 'dist'
+	}, options);
 
 	return function(req, res, next) {
-		var favicon, html, path, title, url;
+		var favicon, html, page, title, url;
 
 		url = req.url;
 
@@ -20,10 +21,9 @@ module.exports = function (options) {
 					url = url + 'index.html';
 				}
 
-				path = (options.dist + url).replace(/\//g, '\\');
+				page = path.join(cwd, options.dist, url);
 
-				html = fs.readFileSync(path).toString();
-
+				html = fs.readFileSync(page).toString();
 
 				title = (html.match(/<title>(.+)<\/title>/i) || '')[1];
 
@@ -43,17 +43,18 @@ module.exports = function (options) {
 
 				return;
 			} catch (err) {
-				console.error('No such page:', path);
+				console.error('No such page:', page);
 			}
 		}
 
 		if (/debug\.ico$/.test(url)) {
 			try {
-				path = options.favicon || __dirname + '/' + url;
-				favicon = fs.readFileSync(path);
+				favicon = options.favicon ? path.join(cwd, options.favicon) : path.join(__dirname, url);
+
+				resource = fs.readFileSync(favicon);
 
 				res.setHeader('Content-Type', 'image/x-icon');
-				res.end(favicon);
+				res.end(resource);
 
 				return;
 			} catch (err) {

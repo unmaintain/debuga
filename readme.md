@@ -37,7 +37,7 @@ Default: `null` | `String`. If `null` then set debug default favicon ![debug](de
 
 ```js
 debuga({
-    favicon: process.cwd() + '/path/to/favicon.ico'
+    favicon: 'path/to/favicon.ico'
 })
 ```
 
@@ -57,7 +57,7 @@ Default: `dist` | `String`. Set serving folder with HTML files.
 
 ```js
 debuga({
-    dist: process.cwd() + '/path/to/html/files'
+    dist: 'path/to/html/files'
 })
 ```
 
