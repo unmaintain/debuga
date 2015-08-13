@@ -1,6 +1,6 @@
 {
   "name": "debuga",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Do your debug workflow more visible on local server.",
   "main": "index.js",
   "scripts": {
