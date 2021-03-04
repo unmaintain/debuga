@@ -1,3 +1,5 @@
+> ### ⚠️ This project in not maintained! Fork for any improvements!
+
 # debuga
 
 Do your debug workflow more visible on local server.
